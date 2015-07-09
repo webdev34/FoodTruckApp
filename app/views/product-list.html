@@ -1,0 +1,63 @@
+
+
+<div class="row">
+  <h4>Product List</h4>
+     <ul class="nav nav-tabs">
+        <li ng-animate="'animate'" ng-class="{'active': currentTruckId == $index}" data-ng-repeat="truck in foodTrucks" ng-click="getProductsByTruckId($index)"><a>{{truck.truckName}}</a></li>
+    </ul>
+
+    <ul>
+        <li ng-animate="'animate'" data-ng-repeat="product in selectedTruckProducts">{{product.productName}} <button class="btn btn-danger" ng-click="deleteItem(product)">Delete</button></li>
+
+    </ul>
+    <form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Product</legend>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="newProductName">New Product Name</label>
+  <div class="controls">
+    <input id="newProductName" name="newProductName" ng-model="newProductName" type="text" placeholder="New Product Name" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="newProductPrice">New Product Price</label>
+  <div class="controls">
+    <input id="newProductPrice" name="newProductPrice" ng-model="newProductPrice" type="text" placeholder="New Product Price" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="textinput">New Product Quantity</label>
+  <div class="controls">
+    <input id="newProductQTY" name="newProductQTY" ng-model="newProductQTY" type="text" placeholder="New Product Quantity" class="input-xlarge">
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="productFoodTruck">Food Truck</label>
+  <div class="controls">
+    <select id="newProductFoodTruck" name="newProductFoodTruck" ng-model="newProductFoodTruck" class="input-xlarge" required="">
+       <option value="{{$index}}" data-ng-repeat="truck in foodTrucks">{{truck.truckName}}</option>
+    </select>
+  </div>
+</div>
+<br/>
+<div class="control-group">
+    <div class="controls">
+      <button class="btn btn-primary" ng-click="addItem('product')">Add</button>
+    </div>
+</div>
+<br/>
+</fieldset>
+</form>
+</div>
